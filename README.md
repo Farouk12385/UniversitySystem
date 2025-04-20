@@ -60,7 +60,7 @@ methods
 ----------------------------------------------------------------------------------------------------
  teams
     #1-farook-nabil-ibrahim"not exsist bec ahmed ez fezamanoooo"
-    methods
+    methods+main
         1-add student  "done"
         2-add course   "done"
         3-remode student "done"
@@ -75,8 +75,7 @@ methods
         10-list student by course
         11-sort students by id
     #3-aly amr-adham-hassouna
-    methods+
-        main
+    methods
         12-sort courses by id
         13-if full course or not
         14-is normal student or not
