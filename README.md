@@ -77,6 +77,6 @@ methods
     #3-aly amr-adham-hassouna
     methods
         12-sort courses by id
-        13-if full course or not
-        14-is normal student or not
+        13-if full course or not"done"
+        14-is normal student or not"done"
         16-redo enrollment stack
