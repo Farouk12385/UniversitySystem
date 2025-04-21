@@ -29,4 +29,10 @@ public void addcourse(int course) {
     }
 
 }
+    // Method to check if the student is enrolled in a  course
+    public boolean isEnrolledInCourse(int courseID) {
+
+        return false;
+    }
+
 }
