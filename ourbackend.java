@@ -265,8 +265,8 @@ public void undoEnrollment() {
 public void redoEnrollment() {
     /*
     this method to redo enrollment
-     test test test */ 
-    // test 
+    */ 
+    
 }
 //-------------------------------------------------------------------
 }
