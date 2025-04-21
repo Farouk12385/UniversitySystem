@@ -34,15 +34,4 @@ public  Courses(int courseID, Courses nextCourse) {
             this.nextCourse.addStudent(studentID);
         }
     }
-    /* This method is created to check if the chosen course is full or not, by setting its limit to 30 as chosen by Dr. Doaa, and comparing the number of the 
-    current students enrolled in the course to the limit which is 30.*/
-     public void checkIfFull() {
-        if (this.currentEnrollment >= this.maxCapacity) {
-            System.out.println("Course ID " + courseID + " is full.");
-        } else {
-            System.out.println("Course ID " + courseID + " is not full. Current enrollment: " 
-                               + currentEnrollment + " out of " + maxCapacity);
-        }
-    }
-
 }
