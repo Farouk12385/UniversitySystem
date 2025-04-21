@@ -71,8 +71,8 @@ methods
     #2-zeyad-ayman-farouk-rashad(mmultiverse)
         7-enrool student in course "done" by rashad
         8-removeenrollment
-        9-list course by sstudent 
-        10-list student by course
+        9-list course by sstudent "done" by ayman
+        10-list student by course "done" by ayman
         11-sort students by id
     #3-aly amr-adham-hassouna
     methods
