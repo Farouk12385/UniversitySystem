@@ -211,8 +211,9 @@ public void sortCoursesByID() {
 }
 //------------------------------------------------------------------------------------
 public void isFullCourse(int courseID) {
-    // This method checks if the course is full or not and prints a message.
-    
+    /*
+    this method to check if the course is full or not
+     */
     Courses current = headcourse; // starting from the head of te course.
 
     while (current != null) {
@@ -220,33 +221,38 @@ public void isFullCourse(int courseID) {
             if (current.currentEnrollment >= current.maxCapacity) { // To check if it has reached the full capacity
                 System.out.println("Course ID " + courseID + " is full.");
             } else {
-                System.out.println("Course ID " + courseID + " is not full. Current enrollment: " 
-                                   + current.currentEnrollment + " out of " + current.maxCapacity);
+                System.out.println("Course ID " + courseID + " is not full. Current enrollment: " + current.currentEnrollment + " out of " + current.maxCapacity);
             }
-            return;  
+            return true; // Course found
+
         }
         current = current.nextCourse;
     }
 
     System.out.println("Course with ID " + courseID + " not found.");
+    return false; // Return false if the course is not found
 }
 //------------------------------------------------------------
 public boolean isNormalStudent(int studentID) {
-    // This method checks if the student is normal, which by FCDS rules means, "He's enrolled in 2-7 courses"
-    // Finding the student by ID. 
-    Student student = findStudentByID(studentID);
-    if (student == null) {
-        System.out.println("Student with ID " + studentID + " not found.");
-        return false;
+    /*
+    this method to check if the student is normal or not
+     */
+    Student current = headstudent; // starting from the head of the student.
+    while (current != null) {
+        if (current.studentID == studentID) { // To check if the current student matches the student ID entered
+            if (current.nextStudent == null) { // To check if it has reached the full capacity
+                System.out.println("Student ID " + studentID + " is a normal student.");
+            } else {
+                System.out.println("Student ID " + studentID + " is not a normal student. Current enrollment: " + current.nextStudent.studentID);
+            }
+            return true; // Student found
+
+        }
+        current = current.nextStudent;
     }
-    
-    // Check the number of courses the student is enrolled in
-    int numCourses = student.getEnrolledCourses().size(); 
-    if (numCourses >= 2 && numCourses <= 7) {
-        return true;  // The student is enrolled in 2-7 courses
-    } else {
-        return false; // The student is not enrolled in the required number of courses
-    }
+    System.out.println("Student with ID " + studentID + " not found.");
+    return false; // Return false if the student is not found
+
 }
 //----------------------------------------------------------------
 public void undoEnrollment() {
