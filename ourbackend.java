@@ -214,14 +214,45 @@ public boolean isFullCourse(int courseID) {
     /*
     this method to check if the course is full or not
      */
-    return false;
+    Courses current = headcourse; // starting from the head of te course.
+
+    while (current != null) {
+        if (current.courseID == courseID) { // To check if the current course matches the course ID entered
+            if (current.currentEnrollment >= current.maxCapacity) { // To check if it has reached the full capacity
+                System.out.println("Course ID " + courseID + " is full.");
+            } else {
+                System.out.println("Course ID " + courseID + " is not full. Current enrollment: " + current.currentEnrollment + " out of " + current.maxCapacity);
+            }
+            return true; // Course found
+
+        }
+        current = current.nextCourse;
+    }
+
+    System.out.println("Course with ID " + courseID + " not found.");
+    return false; // Return false if the course is not found
 }
 //------------------------------------------------------------
 public boolean isNormalStudent(int studentID) {
     /*
     this method to check if the student is normal or not
      */
-    return false;
+    Student current = headstudent; // starting from the head of the student.
+    while (current != null) {
+        if (current.studentID == studentID) { // To check if the current student matches the student ID entered
+            if (current.nextStudent == null) { // To check if it has reached the full capacity
+                System.out.println("Student ID " + studentID + " is a normal student.");
+            } else {
+                System.out.println("Student ID " + studentID + " is not a normal student. Current enrollment: " + current.nextStudent.studentID);
+            }
+            return true; // Student found
+
+        }
+        current = current.nextStudent;
+    }
+    System.out.println("Student with ID " + studentID + " not found.");
+    return false; // Return false if the student is not found
+
 }
 //----------------------------------------------------------------
 public void undoEnrollment() {
@@ -234,7 +265,9 @@ public void undoEnrollment() {
 public void redoEnrollment() {
     /*
     this method to redo enrollment
-     */
+    */ 
+    
 }
 //-------------------------------------------------------------------
 }
+

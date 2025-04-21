@@ -60,7 +60,7 @@ methods
 ----------------------------------------------------------------------------------------------------
  teams
     #1-farook-nabil-ibrahim"not exsist bec ahmed ez fezamanoooo"
-    methods
+    methods+main
         1-add student  "done"
         2-add course   "done"
         3-remode student "done"
@@ -69,15 +69,15 @@ methods
         6-get last course added"done"
         15-undo enrollment stack
     #2-zeyad-ayman-farouk-rashad(mmultiverse)
-        7-enrool student in course
+        7-enrool student in course "done" by rashad
         8-removeenrollment
-        9-list course by sstudent
+        9-list course by sstudent 
         10-list student by course
         11-sort students by id
     #3-aly amr-adham-hassouna
-    methods+
-        main
+    methods
         12-sort courses by id
-        13-if full course or not
-        14-is normal student or not
+        13-if full course or not "done" by aly
+        14-is normal student or not"done" by aly
         16-redo enrollment stack
+        test
