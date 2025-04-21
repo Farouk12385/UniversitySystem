@@ -191,11 +191,42 @@ public void listCourseByStudent(int studentID) {
     /*
     this method to list course by student
      */
+        if (!verfiyStudent(studentID)) { // Use verify method to check if the student exists
+        System.out.println("Student with ID " + studentID + " not found.");
+        return;
+    }
+    Student current = headstudent; // Start from the head of the student list
+    while (current != null) {
+        if (current.studentID == studentID) { // Check if the current student matches the student ID
+            System.out.println("Courses enrolled by Student ID " + studentID + ": " + current.courseCount);
+            return; // Exit after finding the student
+        }
+        current = current.nextStudent; // Move to the next student in the list
+    }
+    System.out.println("Student with ID " + studentID + " not found.");
+    
 }
 public void listStudentByCourse(int courseID) {
     /*
     this method to list student by course
      */
+            if (!verfiyCourse(courseID)) { // Use verify method to check if the course exists
+            System.out.println("Course with ID " + courseID + " not found.");
+            return;
+        }
+        System.out.println("Students enrolled in Course ID " + courseID + ":");
+        Student currentStudent = headstudent; // Start from the head of the student list
+        boolean found = false; // Flag to check if any student is enrolled in the course
+        while (currentStudent != null) {
+            if (verfiyStudent(currentStudent.studentID) && currentStudent.isEnrolledInCourse(courseID)) { // Use verifyStudent method
+            System.out.println("Student ID: " + currentStudent.studentID);
+            found = true;
+            }
+            currentStudent = currentStudent.nextStudent; // Move to the next student in the list
+        }
+        if (!found) {
+            System.out.println("No students are enrolled in Course ID " + courseID + ".");
+        }
 }
 //----------------------------------------------------------------------
 public void sortStudentsByID() {
