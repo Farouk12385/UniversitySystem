@@ -210,7 +210,7 @@ public void sortCoursesByID() {
      */
 }
 //------------------------------------------------------------------------------------
-public void isFullCourse(int courseID) {
+public boolean isFullCourse(int courseID) {
     /*
     this method to check if the course is full or not
      */
