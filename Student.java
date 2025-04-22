@@ -6,13 +6,10 @@ public class Student {
 int studentID;// ID of the student
 Student nextStudent;// reference to the next student
 public Student() {
-    this.nextStudent = null;
 }
 public Student(int StudentID) {
     // Initialize the StudentID
-    // and set nextStudent to null
     this.studentID = StudentID;
-    this.nextStudent = null;
 }
 public Student (int studentID, Student nextStudent) {
     // Initialize the StudentID
