@@ -172,13 +172,61 @@ public int getLastCourseAdded() {
     return lastcourseID;
 }
 //----------------------------------------------------------------------------------------------------
-public void enrollStudentInCourse(int studentID, int courseID) {
+public void enrollStudentinCourse(int studentID, int courseID) {
     /*
     this method to enroll student in course
      */
+    Student current = headstudent; // starting from the head of the student.
+    Courses currentCourse = headcourse; // starting from the head of the course.
+    // check if the course is full or not
+    if (isFullCourse(courseID)) {
+        System.out.println("Course is full. Cannot enroll student.");
+        return;
+    }
+    // check if the student is normal or not
+    if (isNormalStudent(studentID)) {
+        System.out.println("Student is not normal. Cannot enroll in course.");
+        return;
+    }
+    // check if the student and course exist
+    if (!verfiyStudent(studentID) || !verfiyCourse(courseID)) {
+        System.out.println("Student or course not found.");
+        return;
+    }
+    //to check if the student is already enrolled in the course
+    while (current != null) {
+        if (current.studentID == studentID && current.isEnrolledInCourse(courseID)) { // Check if the student is already enrolled in the course
+            System.out.println("Student is already enrolled in this course.");
+            return;
+        }
+        current = current.nextStudent;
+    }
 
+    Student currentStudent = headstudent; // starting from the head of the student.
+    while (currentStudent != null) {
+        if (currentStudent.studentID == studentID) {
+            if (currentStudent.courseCount >= 7) { // Check if the student is already enrolled in 7 courses
+                System.out.println("Student is already enrolled in 7 courses. Cannot enroll in more.");
+                return;
+            }
+            currentStudent.addCourse(); // Increment the course count for the student
+            break;
+        }
+        currentStudent = currentStudent.nextStudent;
+    }
+    // enroll the student in the course
+    while (currentCourse != null) {
+        if (currentCourse.courseID == courseID) {
+            currentCourse.currentEnrollment++;
+            System.out.println("Student " + studentID + " enrolled in course " + courseID);
+            return;
+        }
+        currentCourse = currentCourse.nextCourse;
+    }
+    System.out.println("Course not found.");
 
 }
+
 //-----------------------------------------------------------------------------------------------
 public void removeEnrollment(int studentID, int courseID) {
     /*
