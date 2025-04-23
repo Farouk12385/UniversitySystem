@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -12,15 +11,15 @@ public class ourbackend {
     Stack redostack = new Stack();
 public void addStudent(int studentID) {
     /*
-    this method to add new studen and check if this student is already in the list or not
+    this method to add new student and check if this student is already in the list or not
     singly linked list
     */
     studentID = Scanner.nextInt();// student id is paramtive int type
     while(verfiyStudent(studentID)|| studentID<=0) {//to check if student id is valid or not from method verfitstudent
         if(studentID<=0){
-        System.out.println("student id  invalid id pls enter a valid id");
-        }else{
-        System.out.println("student id already exists pls enter a valid id");
+        System.out.println("Student ID invalid. Please enter a valid ID");
+        } else{
+        System.out.println("Student ID already exists. Please enter a valid ID");
         }
         studentID = Scanner.nextInt();
     }
@@ -233,12 +232,43 @@ public void sortStudentsByID() {
     /*
     this method to sort students by id
      */
+    
 }
 //---------------------------------------------------------------------------
 public void sortCoursesByID() {
     /*
     this method to sort courses by id
      */
+    if (headcourse == null || headcourse.nextCourse == null) {    // if the list is empty OR if the list contains one element which is the head
+        return;     // exists the method and no sorting will be needed
+    } 
+
+    boolean isSwapped;  // to track if any swaps happen
+    do {
+        isSwapped = false;  // reset the flag for every iteration
+        Courses current = headcourse;   // start from head
+        Courses prev = null;    // track the node before the current one
+
+        while (current.nextCourse != null) {    // traverse through list until second-to-last node
+            if (current.courseID > current.nextCourse.courseID) {   
+                Courses tmp = current.nextCourse;   // save next course to temporary variable
+                current.nextCourse = tmp.nextCourse;    // the current will me made to point to what nextCourse was pointing to
+                tmp.nextCourse = current;   // make next point back to current  
+                if (prev == null) {
+                    headcourse = tmp;   // if swapping 1st element, update head
+                } else {
+                    prev.nextCourse = tmp;  // else update prev course's pointer
+                }
+                prev = tmp;
+                isSwapped = true;
+            } else {
+                prev = current;
+                current = current.nextCourse;
+            }
+
+        }
+    } while (isSwapped);
+
 }
 //------------------------------------------------------------------------------------
 public boolean isFullCourse(int courseID) {
