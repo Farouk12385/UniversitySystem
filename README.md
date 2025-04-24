@@ -14,7 +14,8 @@ constractors
     student(int student id)
     student(int studentid,Student nextstudent)
 methods
-    addCourse :(void)
+    addCourse :(
+    
 }
 -------------------
 class Courses{
@@ -67,7 +68,7 @@ methods
         4-remove course "done"
         5-get last student added"done"
         6-get last course added"done"
-        15-undo enrollment stack
+       
     #2-zeyad-ayman-farouk-rashad(mmultiverse)
         7-enrool student in course "done" by rashad
         8-removeenrollment
@@ -81,4 +82,4 @@ methods
         13-if full course or not "done" by aly
         14-is normal student or not"done" by aly
         16-redo enrollment stack
-        test
+        and undo
