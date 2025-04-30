@@ -1,25 +1,42 @@
 public class Courses {
     
     int courseID;
-    Courses nextCourse;
-    int maxCapacity = 30; // Max amount of students that can join the course. FCDS project required 20-30 students. So I made it 30
-    int currentEnrollment;  // To track the number of students currently enrolled in the chosen course
+    Courses nextCourse; 
+    int currentEnrollment;  // To track the number of students currently enrolled in the chosen course.
 
-public Courses() {
+    public Courses() {
+        this.nextCourse = null;
+        this.currentEnrollment = 0; // Initialize enrollment to 0
     }
-public Courses(int courseID) {
-        this.courseID = courseID; // Initialize the courseID 
-    }
-public  Courses(int courseID, Courses nextCourse) {
+
+    public Courses(int courseID) {
+        /*
+        Initialize the courseID
+        and set nextCourse to null
+        */
         this.courseID = courseID;
-        this.nextCourse = nextCourse; // Set nextCourse to the given value
+        this.nextCourse = null;
+        this.currentEnrollment = 0; // Initialize enrollment to 0
     }
-   public void addStudent(int studentID) {
-        // Add a student to the course
-        if (this.nextCourse == null) {
-            this.nextCourse = new Courses(studentID);
-        } else {
-            this.nextCourse.addStudent(studentID);
-        }
+
+    public Courses(int courseID, Courses nextCourse) {
+        /*
+        Initialize the courseID
+        and set nextCourse to the given value
+         */
+        this.courseID = courseID;
+        this.nextCourse = nextCourse;
+        this.currentEnrollment = 0; // Initialize enrollment to 0
+    }
+
+    public void addStudent(int studentID) {
+        // Increment the current enrollment count
+        this.currentEnrollment++;
+    }
+    public boolean isStudentEnrolled(int studentID) {
+        // Check if the student is enrolled in this course
+        // This is a placeholder implementation
+        return false;
     }
 }
+
