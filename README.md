@@ -81,6 +81,7 @@
 
 | Method ID | Description                     | Implemented By       | Team  |
 |-----------|---------------------------------|----------------------|-------|
+| 0         | Main                            | Farouk               | ✅    |
 | 1         | Add Student                     | Team #1              | ✅    |
 | 2         | Add Course                      | Team #1              | ✅    |
 | 3         | Remove Student                  | Team #1              | ✅    |
