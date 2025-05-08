@@ -21,7 +21,7 @@ public class ourbackend {
     public void enrollStudentinCourse(int studentID, int courseID) {...}
     public void undoEnrollment() {...}
     public boolean isFullCourse(int courseID) {...}
-    // ...15+ other methods
+    //
 }
 ----------------------------------------------------------------------------------------------------
  teams
