@@ -1,28 +1,4 @@
-# 🏛️ AFZ University Management System
 
-![Java](https://img.shields.io/badge/Java-17+-blue?logo=java)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
-
-A complete Java backend system for university enrollment management with undo/redo functionality.
-
-## 📌 Core Components
-
-### `ourbackend.java` - The Brain
-```java
-// Manages all university operations
-public class ourbackend {
-    Student headstudent;  // Student linked list
-    Courses headcourse;   // Course linked list
-    Stack<EnrollmentAction> undostack; // Undo history
-    Stack<EnrollmentAction> redostack; // Redo buffer
-    
-    // Key Methods:
-    public void enrollStudentinCourse(int studentID, int courseID) {...}
-    public void undoEnrollment() {...}
-    public boolean isFullCourse(int courseID) {...}
-    //
-}
 ----------------------------------------------------------------------------------------------------
  teams
     #1-farook-nabil-ibrahim"not exsist bec ahmed ez fezamanoooo"
