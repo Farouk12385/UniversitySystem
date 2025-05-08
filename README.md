@@ -1,5 +1,7 @@
-# 📚 AFZ University System - Complete API Documentation
-
+# 📚 AFZ University System 
+![Java](https://img.shields.io/badge/Java-17%2B-blue?logo=java)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 ## 🏛️ ourbackend.java (Main Controller)
 
 ### Student Management
@@ -73,12 +75,7 @@
 | `main(String[] args)` | Entry point with menu system |
 
 ## 📊 UML Diagram
-```mermaid
-graph TD
-    Uni[Uni.java] -->|Calls| ourbackend
-    ourbackend -->|Manages| Student
-    ourbackend -->|Manages| Courses
-    ourbackend -->|Uses| EnrollmentAction
+![UML Diagram](https://github.com/Farouk12385/UniversitySystem/blob/main/data%20UML.png)
 ----------------------------------------------------------------------------------------------------
  teams
     #1-farook-nabil-ibrahim"not exsist bec ahmed ez fezamanoooo"
