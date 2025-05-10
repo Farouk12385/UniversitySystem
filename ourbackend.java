@@ -2,6 +2,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
+
 public class ourbackend {
     Student headstudent;
     Courses headcourse;
@@ -9,6 +10,7 @@ public class ourbackend {
     int lastcourseID;
     Scanner Scanner = new Scanner(System.in);
     Stack<EnrollmentAction> undostack = new Stack<>();
+
     Stack<EnrollmentAction> redostack = new Stack<>();
     
 
@@ -308,29 +310,27 @@ public void removeEnrollment(int studentID, int courseID) {
 
 //---------------------------------------------------------------------------------------------
 public void listAllCoursesByStudent(int studentID) {
-    if (!verfiyStudent(studentID)) {
+    if (!verfiyStudent(studentID)) { // Use verify method to check if the course exists
         System.out.println("Student with ID " + studentID + " not found.");
         return;
     }
 
-    Student currentStudent = headstudent;
-    while (currentStudent != null) {
-        System.out.println("Checking student ID: " + currentStudent.studentID); // Debug
-        if (currentStudent.studentID == studentID) {
-            System.out.println("Courses enrolled by Student ID " + studentID + ":");
-            if (currentStudent.courseCount == 0) {
-                System.out.println("No courses enrolled.");
-            } else {
-                for (int i = 0; i < currentStudent.courseCount; i++) {
-                    System.out.println("Course ID: " + currentStudent.enrolledCourses[i]);
-                }
-            }
-            return;
+    System.out.println("Courses enrolled in Student " + studentID + ":");
+    Courses currentCourse = headcourse;
+    boolean found = false;
+
+    while (currentCourse != null) {
+        System.out.println("Checking course ID: " + currentCourse.courseID); // Debug
+        if (currentCourse.isStudentEnrolled(studentID)) {
+            System.out.println("Course ID: " + currentCourse.courseID);
+            found = true;
         }
-        currentStudent = currentStudent.nextStudent;
+        currentCourse = currentCourse.nextCourse;
     }
 
-    System.out.println("Student with ID " + studentID + " not found.");
+    if (!found) {
+        System.out.println("No students are enrolled in Course ID " + studentID + ".");
+    }
 }
 
 
@@ -566,7 +566,7 @@ public void redoEnrollment() {
         System.out.println("No actions to redo.");
         return;
     }
-
+// pop meaning 
     EnrollmentAction action = redostack.pop();
     int studentID = action.studentID;
     int courseID = action.courseID;
@@ -602,16 +602,7 @@ public void redoEnrollment() {
 
 //-------------------------------------------------------------------
 }
-// for redo and undo
-class EnrollmentAction {
-    int studentID;
-    int courseID;
 
-    EnrollmentAction(int studentID, int courseID) {
-        this.studentID = studentID;
-    this.courseID = courseID;
-    }
-}
 
-// Define the Student class with required methods
+
 
